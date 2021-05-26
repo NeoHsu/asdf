@@ -389,7 +389,7 @@ repository_needs_update() {
   local update_plugins_repository_duration
   update_plugins_repository_duration="$(get_asdf_config_value "update_plugins_repository_duration")"
   local find_result
-  find_result=$(find "$update_file_dir" -name "$update_file_name" -type f -mmin +${update_plugins_repository_duration:-1440} -print)
+  find_result=$(find "$update_file_dir" -name "$update_file_name" -type f -mmin +"${update_plugins_repository_duration:-1440}" -print)
   [ -n "$find_result" ]
 }
 
